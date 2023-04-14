@@ -1,9 +1,10 @@
 import * as React from "react";
-import { Button, View, Text } from "react-native";
+import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import { NativeBaseProvider, Box } from "native-base";
+import ChatScreen from "./src/screens/ChatScreen";
+import { NativeBaseProvider, Image } from "native-base";
+import IconModel from "./src/components/atoms/IconModel";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,8 +12,32 @@ function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Navigator initialRouteName="Chat">
+          <Stack.Screen
+            options={(props) => {
+              return {
+                headerTitleStyle: { color: "white" },
+                headerStyle: { backgroundColor: "green" },
+                headerRight: () => (
+                  <>
+                    <IconModel
+                      icon={require("./src/utils/icons/search.png")}
+                      tintColor={"white"}
+                      size={6}
+                      mr={4}
+                    />
+                    <IconModel
+                      icon={require("./src/utils/icons/more-vert.png")}
+                      tintColor={"white"}
+                      size={6}
+                    />
+                  </>
+                ),
+              };
+            }}
+            name="WhatsApp"
+            component={ChatScreen}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
