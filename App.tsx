@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ChatScreen from "./src/screens/ChatScreen";
 import { NativeBaseProvider, Image } from "native-base";
 import IconModel from "./src/components/atoms/IconModel";
+import { colors } from "./src/utils/colors/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,7 @@ function App() {
             options={(props) => {
               return {
                 headerTitleStyle: { color: "white" },
-                headerStyle: { backgroundColor: "green" },
+                headerStyle: { backgroundColor: colors.primary },
                 headerRight: () => (
                   <>
                     <IconModel
