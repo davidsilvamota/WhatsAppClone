@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ChatScreen from "./src/screens/ChatScreen";
+import HomeScreen from "./src/screens/HomeScreen";
 import { NativeBaseProvider, Image } from "native-base";
 import IconModel from "./src/components/atoms/IconModel";
 import { colors } from "./src/utils/colors/colors";
@@ -19,6 +19,7 @@ function App() {
               return {
                 headerTitleStyle: { color: "white" },
                 headerStyle: { backgroundColor: colors.primary },
+                headerBackTitleVisible: false,
                 headerRight: () => (
                   <>
                     <IconModel
@@ -37,7 +38,7 @@ function App() {
               };
             }}
             name="WhatsApp"
-            component={ChatScreen}
+            component={HomeScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
