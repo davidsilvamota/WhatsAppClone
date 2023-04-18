@@ -15,7 +15,7 @@ type itemsProps = {
   items: { id: number; title: string; content?: React.ReactNode }[];
 };
 export default function TabsModel(props: itemsProps) {
-  const [selected, setSelected] = React.useState(1);
+  const [selected, setSelected] = React.useState(0);
 
   return (
     <>
@@ -23,7 +23,6 @@ export default function TabsModel(props: itemsProps) {
         {props.items.map((e, i) => (
           <>
             <Pressable
-              key={i}
               pt={2}
               alignItems="center"
               opacity={selected === e.id ? 1 : 0.5}
@@ -31,7 +30,12 @@ export default function TabsModel(props: itemsProps) {
               onPress={() => setSelected(e.id)}
             >
               <Center>
-                <Text fontWeight={"semibold"} color="white" fontSize="16">
+                <Text
+                  key={i}
+                  fontWeight={"semibold"}
+                  color="white"
+                  fontSize="16"
+                >
                   {e.title}
                 </Text>
               </Center>
