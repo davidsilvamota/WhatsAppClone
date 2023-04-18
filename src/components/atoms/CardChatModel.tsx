@@ -17,6 +17,7 @@ type CardChatModelProps = {
     recentText: string;
     avatarUrl: string;
   }[];
+  onPress: () => void;
 };
 
 export default function CardChatModel(props: CardChatModelProps) {
@@ -25,7 +26,10 @@ export default function CardChatModel(props: CardChatModelProps) {
       <FlatList
         data={props.data}
         renderItem={({ item }) => (
-          <TouchableOpacity style={{ marginVertical: 12 }}>
+          <TouchableOpacity
+            onPress={props.onPress}
+            style={{ marginVertical: 12 }}
+          >
             <HStack space={[2, 3]} justifyContent="space-between">
               <Avatar
                 size="48px"

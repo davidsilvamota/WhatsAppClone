@@ -4,7 +4,7 @@ import { Text } from "native-base";
 import TabsModel from "../components/organisms/TabsModel";
 import CardChatModel from "../components/atoms/CardChatModel";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const data = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -53,7 +53,12 @@ export default function HomeScreen() {
         {
           id: 0,
           title: "CONVERSAS",
-          content: <CardChatModel data={data} />,
+          content: (
+            <CardChatModel
+              onPress={() => navigation.navigate("Chat")}
+              data={data}
+            />
+          ),
         },
         { id: 1, title: "STATUS", content: <Text>STATUS</Text> },
         { id: 2, title: "CHAMADAS", content: <Text>CHAMADAS</Text> },
