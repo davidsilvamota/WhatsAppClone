@@ -15,12 +15,14 @@ function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{
-            headerShadowVisible: false,
-            headerBackTitleVisible: false,
-            headerTintColor: "white",
-            headerLargeStyle: { backgroundColor: colors.primary },
-            headerTitleStyle: { color: "white" },
+          screenOptions={(props) => {
+            return {
+              headerShadowVisible: false,
+              headerBackTitleVisible: false,
+              headerTintColor: "white",
+              headerLargeStyle: { backgroundColor: colors.primary },
+              headerTitleStyle: { color: "white" },
+            };
           }}
           initialRouteName="Home"
         >

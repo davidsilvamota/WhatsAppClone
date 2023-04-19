@@ -10,6 +10,7 @@ import {
 
 import { colors } from "../../utils/colors/colors";
 import React from "react";
+import ScreenModel from "../atoms/ScreenModel";
 
 type itemsProps = {
   items: { id: number; title: string; content?: React.ReactNode }[];
@@ -50,9 +51,7 @@ export default function TabsModel(props: itemsProps) {
       </HStack>
       {props.items.map((e, i) =>
         selected === e.id ? (
-          <View key={i} p={4} flex={1} width={"100%"}>
-            {e.content}
-          </View>
+          <ScreenModel key={i}>{e.content}</ScreenModel>
         ) : (
           <></>
         )
