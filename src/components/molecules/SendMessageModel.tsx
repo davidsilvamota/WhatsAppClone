@@ -1,6 +1,6 @@
 import { Avatar, Input, View } from "native-base";
 import IconModel from "../atoms/IconModel";
-import { TouchableOpacity } from "react-native/types";
+import { TouchableOpacity } from "react-native";
 import { colors } from "../../utils/colors/colors";
 
 export default function SendMessageModel(props: {
@@ -23,7 +23,7 @@ export default function SendMessageModel(props: {
           <IconModel
             size={6}
             ml={2}
-            icon={require("../utils/icons/emoji.png")}
+            icon={require("../../utils/icons/emoji.png")}
           />
         }
         InputRightElement={
@@ -48,7 +48,7 @@ export default function SendMessageModel(props: {
             notTouch
             tintColor={"white"}
             size={6}
-            icon={require("../utils/icons/send.png")}
+            icon={require("../../utils/icons/send.png")}
           />
         </Avatar>
       </TouchableOpacity>

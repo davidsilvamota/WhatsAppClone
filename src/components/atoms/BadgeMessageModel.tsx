@@ -1,5 +1,5 @@
 import { Column, View, Text } from "native-base";
-import { TouchableOpacity } from "react-native/types";
+import { TouchableOpacity } from "react-native";
 
 type BadgeMessageModelProps = {
   message: string;
