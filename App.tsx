@@ -7,6 +7,7 @@ import { NativeBaseProvider, Image } from "native-base";
 import IconModel from "./src/components/atoms/IconModel";
 import { colors } from "./src/utils/colors/colors";
 import ChatScreen from "./src/screens/ChatScreen";
+import LoginScreen from "./src/screens/LoginScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,8 +25,9 @@ function App() {
               headerTitleStyle: { color: "white" },
             };
           }}
-          initialRouteName="Home"
+          initialRouteName="Login"
         >
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen
             options={(props) => {
               return {
