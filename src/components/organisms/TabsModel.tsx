@@ -22,7 +22,7 @@ export default function TabsModel(props: itemsProps) {
     <>
       <HStack bg={colors.primary} shadow={6}>
         {props.items.map((e, i) => (
-          <>
+          <View key={i}>
             <Pressable
               pt={2}
               alignItems="center"
@@ -46,15 +46,13 @@ export default function TabsModel(props: itemsProps) {
                 <Divider mt={2} h="0.5" />
               )}
             </Pressable>
-          </>
+          </View>
         ))}
       </HStack>
       {props.items.map((e, i) =>
         selected === e.id ? (
           <ScreenModel key={i}>{e.content}</ScreenModel>
-        ) : (
-          <></>
-        )
+        ) : null
       )}
     </>
   );

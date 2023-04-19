@@ -13,10 +13,14 @@ type IconModelProps = {
   mb?: number;
   mt?: number;
   m?: number;
+  notTouch?: boolean;
 };
 export default function IconModel(props: IconModelProps) {
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <TouchableOpacity
+      disabled={props.notTouch || false}
+      onPress={props.onPress}
+    >
       <Image
         ml={props.ml}
         mr={props.mr}
