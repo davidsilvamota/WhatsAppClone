@@ -1,8 +1,9 @@
 import React from "react";
-import { Text } from "native-base";
+import { Text, View } from "native-base";
 
 import TabsModel from "../components/organisms/TabsModel";
 import CardChatModel from "../components/atoms/CardChatModel";
+import ScreenModel from "../components/atoms/ScreenModel";
 
 export default function HomeScreen({ navigation }) {
   const data = [
@@ -55,7 +56,9 @@ export default function HomeScreen({ navigation }) {
           title: "CONVERSAS",
           content: (
             <CardChatModel
-              onPress={() => navigation.navigate("Chat")}
+              onPress={() => {
+                navigation.navigate("Chat");
+              }}
               data={data}
             />
           ),

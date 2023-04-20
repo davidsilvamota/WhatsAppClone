@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Image } from "native-base";
+import { Icon, Image } from "native-base";
 import { ColorType } from "native-base/lib/typescript/components/types";
-import { ImageSourcePropType, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 type IconModelProps = {
   size?: number;
   tintColor?: ColorType;
-  icon?: ImageSourcePropType;
+  icon: React.ReactNode;
   onPress?: () => void;
   ml?: number;
   mr?: number;
@@ -21,17 +21,14 @@ export default function IconModel(props: IconModelProps) {
       disabled={props.notTouch || false}
       onPress={props.onPress}
     >
-      <Image
+      <Icon
         ml={props.ml}
         mr={props.mr}
         mb={props.mb}
         mt={props.mt}
-        m={props.m}
-        w={props.size || 4}
-        h={props.size || 4}
-        tintColor={props.tintColor || "black"}
-        source={props.icon}
-        alt="Alternate Text"
+        as={props.icon}
+        size={props.size || 6}
+        color={props.tintColor || "gray.400"}
       />
     </TouchableOpacity>
   );

@@ -2,6 +2,7 @@ import { Avatar, Input, View } from "native-base";
 import IconModel from "../atoms/IconModel";
 import { TouchableOpacity } from "react-native";
 import { colors } from "../../utils/colors/colors";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function SendMessageModel(props: {
   value?: string;
@@ -20,24 +21,16 @@ export default function SendMessageModel(props: {
         borderColor={"white"}
         borderRadius={12}
         InputLeftElement={
-          <IconModel
-            size={6}
-            ml={2}
-            icon={require("../../utils/icons/emoji.png")}
-          />
+          <IconModel size={6} ml={2} icon={<MaterialIcons name="add" />} />
         }
         InputRightElement={
           <>
             <IconModel
               size={6}
               mr={2}
-              icon={require("../../utils/icons/attach.png")}
+              icon={<MaterialIcons name="attachment" />}
             />
-            <IconModel
-              size={6}
-              mr={2}
-              icon={require("../../utils/icons/camera.png")}
-            />
+            <IconModel size={6} mr={2} icon={<MaterialIcons name="camera" />} />
           </>
         }
         placeholder=""
@@ -48,7 +41,7 @@ export default function SendMessageModel(props: {
             notTouch
             tintColor={"white"}
             size={6}
-            icon={require("../../utils/icons/send.png")}
+            icon={<MaterialIcons name="send" />}
           />
         </Avatar>
       </TouchableOpacity>

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Center,
-  Divider,
-  HStack,
-  Pressable,
-  View,
-  Text,
-} from "native-base";
+import { Center, Divider, HStack, Pressable, View, Text } from "native-base";
 
 import { colors } from "../../utils/colors/colors";
 import React from "react";
@@ -20,33 +12,27 @@ export default function TabsModel(props: itemsProps) {
 
   return (
     <>
-      <HStack bg={colors.primary} shadow={6}>
+      <HStack h={10} bg={colors.primary} shadow={6}>
         {props.items.map((e, i) => (
-          <View key={i}>
-            <Pressable
-              pt={2}
-              alignItems="center"
-              opacity={selected === e.id ? 1 : 0.5}
-              flex={1}
-              onPress={() => setSelected(e.id)}
-            >
-              <Center>
-                <Text
-                  key={i}
-                  fontWeight={"semibold"}
-                  color="white"
-                  fontSize="16"
-                >
-                  {e.title}
-                </Text>
-              </Center>
-              {selected === e.id ? (
-                <Divider mt={2} h="0.5" bgColor={"white"} />
-              ) : (
-                <Divider mt={2} h="0.5" />
-              )}
-            </Pressable>
-          </View>
+          <Pressable
+            key={i}
+            pt={2}
+            alignItems="center"
+            opacity={selected === e.id ? 1 : 0.5}
+            flex={1}
+            onPress={() => setSelected(e.id)}
+          >
+            <Center>
+              <Text key={i} fontWeight={"semibold"} color="white" fontSize="16">
+                {e.title}
+              </Text>
+            </Center>
+            {selected === e.id ? (
+              <Divider mt={2} h="0.5" bgColor={"white"} />
+            ) : (
+              <Divider mt={2} h="0.5" />
+            )}
+          </Pressable>
         ))}
       </HStack>
       {props.items.map((e, i) =>

@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import { Button, Icon, Input, Pressable, Stack, Text } from "native-base";
+import { Button } from "native-base";
 import ScreenModel from "../components/atoms/ScreenModel";
 import { colors } from "../utils/colors/colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import InputModel from "../components/atoms/InputModel";
 import InputPasswordModel from "../components/atoms/InputPasswordModel";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function SiginIn() {
-    if (email === "Admin" && password === "admin123") {
-      navigation.navigate("WhatsApp");
-    } else {
-      setEmail("");
-      setPassword("");
-      alert("Digite um email e senha validos para efetuar login");
+  async function signIn() {
+    try {
+      console.log("entrou no try");
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      alert("Por favor digite um email e senha válido");
     }
   }
 
@@ -37,7 +38,7 @@ export default function LoginScreen({ navigation }) {
         value={password}
         placeholder="Digite sua senha"
       />
-      <Button my={2} onPress={() => SiginIn()} bg={colors.primary}>
+      <Button my={2} onPress={() => signIn()} bg={colors.primary}>
         Login
       </Button>
     </ScreenModel>

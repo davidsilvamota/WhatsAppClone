@@ -21,20 +21,15 @@ export default function ChatScreen() {
 
   return (
     <ScreenModel>
-      <View flex={1}>
+      <View>
         {messageData.map((e, i) => (
-          <BadgeMessageModel
-            key={i}
-            message={e.message}
-            hour={e.hour}
-            type={e.type}
-          />
+          <BadgeMessageModel message={e.message} hour={e.hour} type={e.type} />
         ))}
       </View>
       <SendMessageModel
         onPress={() => sendMessage()}
         value={message}
-        onChangeText={(e: string) => setMessage(e)}
+        onChangeText={(e) => setMessage(e)}
       />
     </ScreenModel>
   );
