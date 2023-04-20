@@ -24,7 +24,7 @@ function App() {
               headerTitleStyle: { color: "white" },
             };
           }}
-          initialRouteName="WhatsApp"
+          initialRouteName="Login"
         >
           <Stack.Screen name="Login" component={LoginScreen} />
 
