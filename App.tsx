@@ -11,7 +11,6 @@ import LoginScreen from "./src/screens/LoginScreen";
 const Stack = createNativeStackNavigator();
 
 function App() {
-  const [user, setUser] = React.useState(null);
   return (
     <NativeBaseProvider>
       <NavigationContainer>
@@ -25,12 +24,9 @@ function App() {
               headerTitleStyle: { color: "white" },
             };
           }}
-          initialRouteName="Login"
+          initialRouteName="WhatsApp"
         >
-          <Stack.Screen
-            name="Login"
-            component={user ? LoginScreen : HomeScreen}
-          />
+          <Stack.Screen name="Login" component={LoginScreen} />
 
           <Stack.Screen
             options={(props) => {

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, Column } from "native-base";
+
 import ScreenModel from "../components/atoms/ScreenModel";
-import { TouchableOpacity } from "react-native";
-import IconModel from "../components/atoms/IconModel";
-import { colors } from "../utils/colors/colors";
 import SendMessageModel from "../components/molecules/SendMessageModel";
 import BadgeMessageModel from "../components/atoms/BadgeMessageModel";
+import { View } from "native-base";
 
 export default function ChatScreen() {
   const [messageData, setMessageData] = useState([
