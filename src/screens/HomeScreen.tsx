@@ -1,9 +1,7 @@
 import React from "react";
-import { Text, View } from "native-base";
-
+import { Button, Text, View } from "native-base";
 import TabsModel from "../components/organisms/TabsModel";
 import CardChatModel from "../components/atoms/CardChatModel";
-import ScreenModel from "../components/atoms/ScreenModel";
 
 export default function HomeScreen({ navigation }) {
   const data = [
@@ -49,23 +47,25 @@ export default function HomeScreen({ navigation }) {
   ];
 
   return (
-    <TabsModel
-      items={[
-        {
-          id: 0,
-          title: "CONVERSAS",
-          content: (
-            <CardChatModel
-              onPress={() => {
-                navigation.navigate("Chat");
-              }}
-              data={data}
-            />
-          ),
-        },
-        { id: 1, title: "STATUS", content: <Text>STATUS</Text> },
-        { id: 2, title: "CHAMADAS", content: <Text>CHAMADAS</Text> },
-      ]}
-    />
+    <>
+      <TabsModel
+        items={[
+          {
+            id: 0,
+            title: "CONVERSAS",
+            content: (
+              <CardChatModel
+                onPress={() => {
+                  navigation.navigate("Chat");
+                }}
+                data={data}
+              />
+            ),
+          },
+          { id: 1, title: "STATUS", content: <Text>STATUS</Text> },
+          { id: 2, title: "CHAMADAS", content: <Text>CHAMADAS</Text> },
+        ]}
+      />
+    </>
   );
 }

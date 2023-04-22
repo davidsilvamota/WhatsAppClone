@@ -6,6 +6,7 @@ import { useAuthentication } from "./src/hooks/useAuthentication";
 
 function App() {
   const { user } = useAuthentication();
+  console.log(user, "kk");
   return (
     <NativeBaseProvider>
       {user ? <UserStack /> : <AuthStack />}

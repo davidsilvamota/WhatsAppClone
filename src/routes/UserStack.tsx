@@ -5,6 +5,8 @@ import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 import { colors } from "../utils/colors/colors";
 import { MaterialIcons } from "@expo/vector-icons";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +37,8 @@ export default function UserStack() {
                     mr={4}
                   />
                   <IconModel
-                    icon={<MaterialIcons name="code" />}
+                    onPress={() => signOut(auth)}
+                    icon={<MaterialIcons name="logout" />}
                     tintColor={"white"}
                     size={6}
                   />
