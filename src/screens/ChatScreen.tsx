@@ -32,7 +32,12 @@ export default function ChatScreen() {
     <ScreenModel>
       <ScrollView>
         {messageData.map((e, i) => (
-          <BadgeMessageModel message={e.message} hour={e.hour} type={e.type} />
+          <BadgeMessageModel
+            key={i}
+            message={e.message}
+            hour={e.hour}
+            type={e.type}
+          />
         ))}
       </ScrollView>
       <KeyboardAvoidingView

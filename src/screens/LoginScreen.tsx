@@ -6,7 +6,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import InputModel from "../components/atoms/InputModel";
 import InputPasswordModel from "../components/atoms/InputPasswordModel";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -14,7 +15,6 @@ export default function LoginScreen({ navigation }) {
 
   async function signIn() {
     try {
-      console.log("entrou no try");
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       alert("Por favor digite um email e senha válido");

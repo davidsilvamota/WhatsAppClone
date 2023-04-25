@@ -21,6 +21,9 @@ export default function UserStack() {
             headerTintColor: "white",
             headerLargeStyle: { backgroundColor: colors.primary },
             headerTitleStyle: { color: "white" },
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
           };
         }}
         initialRouteName="WhatsApp"

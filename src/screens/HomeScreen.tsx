@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Text, View } from "native-base";
 import TabsModel from "../components/organisms/TabsModel";
 import CardChatModel from "../components/atoms/CardChatModel";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function HomeScreen({ navigation }) {
   const data = [
@@ -45,6 +47,11 @@ export default function HomeScreen({ navigation }) {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU",
     },
   ];
+  const ref = collection(db, "users");
+
+  React.useEffect(() => {
+    console.log(ref, "olá");
+  }, []);
 
   return (
     <>
