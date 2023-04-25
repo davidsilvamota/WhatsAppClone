@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "native-base";
 import ScreenModel from "../components/atoms/ScreenModel";
 import { colors } from "../utils/colors/colors";
@@ -12,6 +12,8 @@ import { doc, getDoc } from "firebase/firestore";
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const docRef = doc(db, "users", "naruto");
+  const docSnap = getDoc(docRef);
 
   async function signIn() {
     try {
