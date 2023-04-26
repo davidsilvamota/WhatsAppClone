@@ -10,8 +10,8 @@ import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("davidrafaelmotta@gmail.com");
+  const [password, setPassword] = useState("admin123");
   const docRef = doc(db, "users", "naruto");
   const docSnap = getDoc(docRef);
 

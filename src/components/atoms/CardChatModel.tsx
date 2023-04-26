@@ -8,16 +8,12 @@ import {
   Text,
 } from "native-base";
 import { TouchableOpacity } from "react-native";
+import { UsersTypes } from "../../services/getCollection";
 
 type CardChatModelProps = {
-  data: {
-    id: string;
-    fullName: string;
-    timeStamp: string;
-    recentText: string;
-    avatarUrl: string;
-  }[];
+  data: UsersTypes[];
   onPress: () => void;
+  setId?: (id: string) => void;
 };
 
 export default function CardChatModel(props: CardChatModelProps) {
@@ -27,14 +23,17 @@ export default function CardChatModel(props: CardChatModelProps) {
         data={props.data}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={props.onPress}
+            onPress={() => {
+              props.onPress();
+              props.setId(item.id);
+            }}
             style={{ marginVertical: 12 }}
           >
             <HStack space={[2, 3]} justifyContent="space-between">
               <Avatar
                 size="48px"
                 source={{
-                  uri: item.avatarUrl,
+                  uri: item.avatar,
                 }}
               />
               <VStack>
@@ -45,7 +44,7 @@ export default function CardChatModel(props: CardChatModelProps) {
                   color="coolGray.800"
                   bold
                 >
-                  {item.fullName}
+                  {item.name}
                 </Text>
                 <Text
                   color="coolGray.600"
